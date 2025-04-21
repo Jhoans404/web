@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cinesario</title>
+  <meta name="description" content="Cinesario - Tu cine favorito en Piura">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Equipo Web UTP">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+    }
+
+    header {
+      background: #1c1c1c;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #00ffcc;
+    }
+
+    nav a, header a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    #buscador {
+      padding: 6px;
+      border-radius: 5px;
+      border: none;
+      width: 200px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], textarea {
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+      width: 100%;
+    }
+
+    button {
+      background-color: #00ffcc;
+      color: #000;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cartelera, .contenido-pelicula, .mapa {
+      padding: 20px;
+    }
+
+    .peliculas {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .pelicula {
+      width: 200px;
+      text-align: center;
+    }
+
+    .pelicula img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .reviews {
+      margin-top: 20px;
+    }
+
+    .review {
+      background: #1e1e1e;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+
+    .review-form textarea {
+      height: 80px;
+    }
+
+    .formularios-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 40px 0;
+    }
+
+    .form-container {
+      max-width: 400px;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1;
+    }
+
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    td, th {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: center;
+    }
+
+    tr:nth-child(even) {
+      background-color: #222;
+    }
+
+
+    marquee {
+      background: #00ffcc;
+      color: #000;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <div class="logo-container">
+      <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Cinesario logo">
+      <div class="logo">Cinesario</div>
+    </div>
+    <nav>
+      <a href="/cinesario/login/inicio.html">Iniciar Sesión</a>
+      <a href="/cinesario/login/inicio.html">Registrarse</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
+    <input type="text" placeholder="Buscar película..." id="buscador">
+  </header>
+
+  <!-- MENSAJE EN MOVIMIENTO -->
+  <marquee>¡Compra tus entradas ahora y disfruta de los mejores estrenos!</marquee>
+  
+  <!-- CARTELERA -->
+  <main class="cartelera">
+    <h2>Cartelera</h2>
+    <div class="peliculas">
+      <div class="pelicula">
+        <a href="peliculas/inception.html" onclick="mostrarPelicula('Inception')">
+          <img src="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" alt="Inception">
+          <p>Inception</p>
+        </a>
+      </div>
+      <div class="pelicula">
+        <a href="#pelicula-Interstellar" onclick="mostrarPelicula('Interstellar')">
+          <img src="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" alt="Interstellar">
+          <p>Interstellar</p>
+        </a>
+      </div>
+        <div class="pelicula">
+        <a href=".../peliculas/inception.html" onclick="mostrarPelicula('Spiderman:Homecoming')">
+          <img src="https://movienetworkpr.com/wp-content/uploads/2017/06/spiderman_homecoming_ver11_xlg.jpg" alt="Spiderman:Homecoming">
+          <p>Spiderman:Homecoming</p>
+        </a>
+      </div>
+        <div class="pelicula">
+        <a href="#pelicula-El Padrino" onclick="mostrarPelicula('El padrino')">
+          <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2018/04/padrino.jpg?tf=256x" alt="El Padrino">
+          <p>El Padrino</p>
+        </a>
+      </div>
+        <div class="pelicula">
+        <a href="#pelicula-Olvidado" onclick="mostrarPelicula('Olvidado')">
+          <img src="https://images.justwatch.com/poster/294758200/s166/gieogyi-bam.avif" alt="Olvidado">
+          <p>Olvidado</p>
+        </a>
+      </div>
+        <div class="pelicula">
+        <a href="#pelicula-El Resplandor" onclick="mostrarPelicula('El Resplandor')">
+          <img src="https://images.justwatch.com/poster/129659342/s166/el-resplandor.avif" alt="El resplandor">
+          <p>El Resplandor</p>
+        </a>
+      </div>
+        <div class="pelicula">
+        <a href="#pelicula-Taxi Driver" onclick="mostrarPelicula('Taxi Driver')">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Taxi_Driver_%281976_film_poster%29.jpg/250px-Taxi_Driver_%281976_film_poster%29.jpg" alt="Taxi Driver">
+          <p>Taxi Driver</p>
+        </a>
+      </div>
+        <div class="pelicula">
+        <a href="#pelicula-Shrek" onclick="mostrarPelicula('Shrek')">
+          <img src="https://m.media-amazon.com/images/I/51lsL-pawpL._SY445_.jpg" alt="Sherk">
+          <p>Shrek</p>
+        </a>
+      </div>
+        <div class="pelicula">
+        <a href="#pelicula-Avatar:El sentido del aguda" onclick="mostrarPelicula('Avatar:El sentido del agua')">
+          <img src="https://musicart.xboxlive.com/7/4f616500-0000-0000-0000-000000000002/504/image.jpg?q=90&m=6&h=270&w=270&b=%23FFFFFFFF&f=jpg&o=f&aim=true" alt="Avatar:El sentido del agua">
+          <p>Avatar:El sentido del agua</p>
+        </a>
+      </div> 
+        <div class="pelicula">
+        <a href="#pelicula-Blanca Nieves" onclick="mostrarPelicula('Blanca Nieves')">
+          <img src="https://images.justwatch.com/poster/328582459/s166/snow-white-and-the-seven-dwarfs.avif" alt="Blanca Nieves">
+          <p>Blanca Nieves</p>
+        </a>
+      </div> 
+        <div class="pelicula">
+        <a href="#pelicula-Up:Una aventira en altura" onclick="mostrarPelicula('Up:Una aventira en altura')">
+          <img src="https://www.funeralnatural.net/sites/default/files/pelicula/imagen/upcartel.jpg" alt="Up:Una aventira en altura">
+          <p>Up:Una aventira en altura</p>
+        </a>
+      </div> 
+        <div class="pelicula">
+        <a href="#pelicula-Tren a Busan" onclick="mostrarPelicula('Tren a Busan')">
+          <img src="https://pics.filmaffinity.com/train_to_busan-266744354-mmed.jpg" alt="Tren a Busan">
+          <p>Tren a Busam</p>
+        </a>
+      </div> 
+        <div class="pelicula">
+        <a href="#pelicula-Sector 9" onclick="mostrarPelicula('Sector 9')">
+          <img src="https://biblioteca.ulpgc.es/sites/default/files/attachments_files/lacalmalectora/Distrito_9_frente.jpg" alt="Sector 9">
+          <p>Sector 9</p>
+        </a>
+      </div> 
+        <div class="pelicula">
+        <a href="#pelicula-Charlie y la fabrica de chocolate" onclick="mostrarPelicula('Tren a Busan')">
+          <img src="https://pics.filmaffinity.com/charlie_and_the_chocolate_factory-369210884-mmed.jpg" alt="Charlie y la fabrica de chocolate">
+          <p>Charlie y la fabrica de Chocolate</p>
+        </a>
+      </div>
+        <div class="pelicula">
+        <a href="#pelicula-Depredador" onclick="mostrarPelicula('Depredador')">
+          <img src="https://i.pinimg.com/736x/43/e4/7d/43e47dbe323f21a464c8dc48d352ef73.jpg" alt="Depredador">
+          <p>Depredador</p>
+        </a>
+      </div>
+        <div class="pelicula">
+        <a href="#pelicula-Titanic onclick="mostrarPelicula('Titanic')">
+          <img src="https://i.pinimg.com/736x/4f/60/4a/4f604aff9ebdf824d4e99351fac43938.jpg" alt="Titanic">
+          <p>Titanic</p>
+        </a>
+      </div>
+        <div class="pelicula">
+        <a href="#pelicula-El cadaver de la Novia onclick="mostrarPelicula('Titanic')">
+          <img src="https://i.pinimg.com/736x/56/22/d1/5622d14bda686f72c2a03e01958baa64.jpg" alt="El cadaver de la Novia">
+          <p>El cadaver de la novia</p>
+        </a>
+      </div>
+        <div class="pelicula">
+        <a href="#pelicula-Harry Potter onclick="mostrarPelicula('Titanic')">
+          <img src="https://i.pinimg.com/736x/89/be/62/89be62d577431cdeaf8387ee106a674a.jpg" alt="Harry Potter">
+          <p>Harry Potter</p>
+        </a>
+      </div>
+        
+    </div>
+  </main>
+
+  <!-- PELÍCULA (RESEÑAS) -->
+  <main class="contenido-pelicula" id="pelicula" style="display:none;">
+    <h2 id="titulo-pelicula">Película</h2>
+    <p><strong>Género:</strong> Ciencia ficción</p>
+    <p><strong>Descripción:</strong> Esta es una película increíble.</p>
+
+    <div class="reviews">
+      <h3>Reseñas de usuarios</h3>
+      <div class="review">
+        <p><strong>Ana:</strong> Muy buena película 🔥</p>
+        <button class="like-btn">👍 15</button>
+      </div>
+
+      <div class="review-form">
+        <h4>Escribe tu reseña</h4>
+        <textarea placeholder="Escribe aquí tu opinión..."></textarea>
+        <button>Enviar reseña</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- HORARIOS EN TABLA -->
+
+ <section class="horarios">
+    <h2>Horarios de Funciones</h2>
+    <table>
+      <tr>
+        <th>Película</th>
+        <th>Horario</th>
+        <th>Sala</th>
+      </tr>
+      <tr>
+        <td>Inception</td>
+        <td>3:00 PM</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Interstellar</td>
+        <td>5:30 PM</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>El Padrino</td>
+        <td>8:00 PM</td>
+        <td>1</td>
+      </tr>
+    </table>
+  </section>
+
+    <!-- VIDEO DE YOUTUBE -->
+
+<iframe width="640" height="360"
+        src="https://www.youtube.com/embed/Oi4Eqgp1iu4"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+</iframe>
+
+ 
+
+  <!-- MAPA DE UBICACIÓN -->
+  <main class="mapa" id="ubicacion">
+    <h2>Encuentra nuestro cine</h2>
+    <p>Estamos ubicados en Piura, Perú.</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.4184526551485!2d-80.630726626254!3d-5.196729552401269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904a107e65ddddeb%3A0xf1edaf6744b58bb4!2sCineplanet%20Piura%20Centro!5e0!3m2!1ses!2spe!4v1745121052150!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+
+  </body>
+
+  <footer>
+    <hr>
+    <p align="center">&copy; 2025 Cinesario. Todos los derechos reservados.</p>
+    <p align="center">Desarrollado por el equipo web de UTP</p>
+  </footer>
+</html>
