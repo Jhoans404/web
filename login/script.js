@@ -21,8 +21,7 @@ btnRegister.addEventListener("click", () => {
 registerForm.addEventListener("submit", (e) => {
   e.preventDefault();
   alert("¡Registro exitoso!");
-  window.location.href = "../index.html";
-  ; // Redirección a la página principal
+  window.location.href = "../index.html"; // Redirección a la página principal
 });
 
 // Inicio de sesión simulado
