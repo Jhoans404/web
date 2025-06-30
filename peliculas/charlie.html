@@ -13,8 +13,8 @@
 
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f8ff; /* Fondo azul claro */
-      color: #333;
+      background-color: #1c1c1c;
+      color: #ddd6d6; 
       padding: 20px;
       display: flex;
       justify-content: center;
@@ -27,7 +27,7 @@
       width: 100%;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px #00ffcc;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -81,24 +81,231 @@
         font-size: 1.5rem;
       }
     }
+    /* Estilos para el botón y modal */
+.boton-comprar {
+  background-color: #00ffcc;
+  color: #000;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 20px auto;
+  display: block;
+  transition: all 0.3s;
+}
+
+.boton-comprar:hover {
+  background-color: #00e6b8;
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #1e1e1e;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  color: #fff;
+  border: 1px solid #00ffcc;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #00ffcc;
+}
+
+label {
+  display: block;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 10px;
+  accent-color: #00ffcc;
+}
+
+#calcular {
+  background-color: #00ffcc;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+/* animacion de ventana final de compra */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-content.animated {
+  animation: fadeIn 4.5s ease forwards;
+}
+#modalTicket .modal-content{
+  width:auto !important;      /* anula el 90 %               */
+  max-width:320px !important; /* cupón angosto               */
+  padding:28px 32px;
+  border:2px dashed #00ffcc;
+  text-align:left;
+}
+#modalTicket h2{
+  margin-bottom:18px;
+  text-align:center;
+}
+#modalTicket p{
+  margin:10px 0;
+  line-height:1.4;
+}
+#modalTicket p strong{
+  display:inline-block;
+  min-width:88px;
+}
+#modalTicket button{
+  margin-top:24px;
+  width:100%;
+}
+#modalTicket .close-ticket{
+  font-size:22px;
+  font-weight:bold;
+}
+
   </style>
 </head>
 <body>
-
   <div class="container">
     <div class="poster">
-      <img src="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" alt="Interstellar" />
+      <img src="https://pics.filmaffinity.com/charlie_and_the_chocolate_factory-369210884-mmed.jpg" alt="Charlie y la fábrica de chocolate" />
     </div>
     <div class="info">
-      <h1>Inception</h1>
-      <p><span class="label">Director:</span>  Christopher Nolan</p>
-      <p><span class="label">Año:</span> 2010</p>
-      <p><span class="label">Duración:</span> 148 minutos</p>
-      <p><span class="label">Género:</span>  Ciencia ficción, Acción, Thriller</p>
-      <p><span class="label">Sinopsis:</span> Dom Cobb es un ladrón especializado en infiltrarse en los sueños para robar secretos del subconsciente. Su habilidad lo ha convertido en un fugitivo, pero también en el mejor en su campo. Se le presenta una oportunidad para redimirse: implantar una idea en la mente de un heredero corporativo, una tarea conocida como "origen". Sin embargo, su pasado y las complejidades del subconsciente amenazan con sabotear la misión.</p>
-      <p><a href="https://www.imdb.com/es/title/tt0816692/?ref_=fn_all_ttl_1" target="_blank">Ver en IMDb</a></p>
+      <h1>Charlie y la fábrica de chocolate</h1>
+      <p><span class="label">Director:</span> Tim Burton</p>
+      <p><span class="label">Año:</span> 2005</p>
+      <p><span class="label">Duración:</span> 115 minutos</p>
+      <p><span class="label">Género:</span> Fantasía, Aventura, Familia</p>
+      <p><span class="label">Sinopsis:</span> El excéntrico Willy Wonka abre las puertas de su mágica fábrica de chocolate a cinco niños afortunados. Charlie Bucket, un niño pobre pero bondadoso, gana un billete dorado y junto a su abuelo emprende un viaje lleno de maravillas y lecciones de vida.</p>
+      <p><a href="https://www.imdb.com/title/tt0367594/" target="_blank">Ver en IMDb</a></p>
+      <br>
+      <button id="btnCalcularPrecio" class="boton-comprar">Comprar Entrada</button>
+
     </div>
   </div>
+
+<!-- Ventana flotante de compra -->
+<div id="modalPrecio" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Calculadora de Precio</h2>
+    
+    <form id="formPrecio">
+      <label>
+        <input type="radio" name="tipo" value="2D" checked> 2D (S/20)
+      </label>
+      <label>
+        <input type="radio" name="tipo" value="3D"> 3D (S/25)
+      </label>
+      
+      <label>
+        <input type="checkbox" name="descuento"> ¿Eres estudiante o con discapacidad? (15% de descuento)
+      </label>
+      
+      <label>
+        <input type="checkbox" name="promocion"> ¿Es lunes o martes? (10% adicional)
+      </label>
+      
+      <label>
+        <input type="checkbox" name="combo"> ¿Bebida + Canchita? (+S/10)
+      </label>
+      
+      <button type="button" id="calcular">Calcular</button>
+
+      
+    </form>
+    
+<div id="resultado" style="margin-top:20px; font-weight:bold; color:#00ffcc;"></div>
+
+<button id="confirmarCompra"
+        class="boton-comprar"
+        style="display:none; margin-top:10px;">
+  Confirmar Compra
+</button>
+
+  </div>
+</div>
+
+<script src="precio.js"></script>
+
+<div id="modalConfirmacion" class="modal">
+  <div class="modal-content" style="text-align: center;">
+    <span class="close" onclick="document.getElementById('modalConfirmacion').style.display='none'">&times;</span>
+    <h2>¡Compra Realizada!</h2>
+    <p>Tu entrada ha sido comprada exitosamente. ¡Disfruta la película!</p>
+  </div>
+</div>
+
+
+<div id="modalTicket" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close-ticket">&times;</span>
+    <h2>Boleto de Cine</h2>
+    <p><strong>Película:</strong> <span id="ticket-titulo"></span></p>
+    <p><strong>Fecha/Hora:</strong> <span id="ticket-fecha"></span></p>
+    <p><strong>Asiento:</strong> <span id="ticket-asiento"></span></p>
+    <p><strong>Total:</strong> <span id="ticket-precio"></span></p>
+
+    <!-- Botón de imprimir aquí -->
+    <button id="btnImprimirBoleto"
+            class="boton-comprar"
+            style="margin-top:16px;">
+      Imprimir Boleto
+    </button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const botonCompra = document.getElementById("confirmarCompra");
+    const calcularBtn = document.getElementById("calcular");
+
+    calcularBtn.addEventListener("click", () => {
+      botonCompra.style.display = "block";
+    });
+
+    botonCompra.addEventListener("click", () => {
+      document.getElementById("modalPrecio").style.display = "none";
+      document.getElementById("modalConfirmacion").style.display = "block";
+      botonCompra.style.display = "none"; // Para ocultarlo luego de la compra
+    });
+  });
+</script>
+
 </body>
- 
 </html>
