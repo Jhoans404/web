@@ -29,16 +29,16 @@
                     </div>
                     <div class="separator">o usa tu email</div>
                     <div class="input-group">
-                        <input type="text" placeholder="Nombre completo" required />
+                        <input id="nombre" type="text" placeholder="Nombre completo" required />
                     </div>
                     <div class="input-group">
-                        <input type="email" placeholder="Email" required />
+                        <input id="email" type="email" placeholder="Email" required />
                     </div>
                     <div class="input-group">
-                        <input type="password" placeholder="Contraseña" required />
+                        <input id="password" type="password" placeholder="Contraseña" required />
                     </div>
                     <div class="btn-container">
-                        <button class="btn-primary">Registrarse</button>
+                        <button class="btn-primary" onclick="registrar()">Registrarse</button>
                     </div>
                     <p class="footer-text">¿Ya tienes cuenta? <a href="#" id="signIn">Iniciar Sesión</a></p>
                 </div>
@@ -86,5 +86,6 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="datosBackend.js"></script>
 </body>
 </html>

@@ -19,6 +19,7 @@ mongoose.connect(process.env.MONGO_URI, {
 const Usuario = mongoose.model('Usuario', {
   nombre: String,
   email: String,
+  password: String,
 });
 
 // Ruta para obtener usuarios
@@ -27,7 +28,31 @@ app.get('/usuarios', async (req, res) => {
   res.json(usuarios);
 });
 
+const bcrypt = require('bcrypt');
+
+app.post('/usuarios', async (req, res) => {
+  const { nombre, email, password } = req.body;
+
+  try {
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    const nuevoUsuario = new Usuario({
+      nombre,
+      email,
+      password: hashedPassword,
+    });
+
+    await nuevoUsuario.save();
+    res.status(201).json({ mensaje: 'Usuario registrado correctamente' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error al registrar usuario' });
+  }
+});
+
 // Iniciar servidor
 app.listen(3000, () => {
   console.log('Servidor corriendo en http://localhost:3000');
 });
+
+
