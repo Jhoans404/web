@@ -38,7 +38,7 @@
                         <input id="password" type="password" placeholder="Contraseña" required />
                     </div>
                     <div class="btn-container">
-                        <button class="btn-primary" onclick="registrar()">Registrarse</button>
+                        <button onclick="registrar()" class="btn-primary" >Registrarse</button>
                     </div>
                     <p class="footer-text">¿Ya tienes cuenta? <a href="#" id="signIn">Iniciar Sesión</a></p>
                 </div>
@@ -56,14 +56,14 @@
                     </div>
                     <div class="separator">o usa tu cuenta</div>
                     <div class="input-group">
-                        <input type="email" placeholder="Email" required />
+                        <input id="emailLogin" type="email" placeholder="Email" required />
                     </div>
                     <div class="input-group">
-                        <input type="password" placeholder="Contraseña" required />
+                        <input id="passwordLogin" type="password" placeholder="Contraseña" required />
                     </div>
                     <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
                     <div class="btn-container">
-                        <button class="btn-primary" id="btnIngresar">Ingresar</button>
+                        <button class="btn-primary" id="btnIngresar" onclick="iniciarSesion()">Ingresar</button>
                     </div>
                     <p class="footer-text">¿No tienes cuenta? <a href="#" id="signUp">Regístrate</a></p>
                 </div>

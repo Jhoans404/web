@@ -1,36 +1,38 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-require('dotenv').config();
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const bcrypt = require("bcrypt");
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 // Conectar a MongoDB Atlas (usa tu MONGO_URI del .env)
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log('Conexión a MongoDB Atlas exitosa'))
-  .catch(err => console.error('Error de conexión a MongoDB:', err));
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Conexión a MongoDB Atlas exitosa"))
+  .catch((err) => console.error("Error de conexión a MongoDB:", err));
 
-// Esquema de ejemplo
-const Usuario = mongoose.model('Usuario', {
+const Usuario = mongoose.model("Usuario", {
   nombre: String,
   email: String,
   password: String,
 });
 
+module.exports = Usuario;
+
 // Ruta para obtener usuarios
-app.get('/usuarios', async (req, res) => {
+app.get("/usuarios", async (req, res) => {
   const usuarios = await Usuario.find();
   res.json(usuarios);
 });
 
-const bcrypt = require('bcrypt');
-
-app.post('/usuarios', async (req, res) => {
+// Ruta para registrar un nuevo usuario
+app.post("/usuarios", async (req, res) => {
   const { nombre, email, password } = req.body;
 
   try {
@@ -44,15 +46,13 @@ app.post('/usuarios', async (req, res) => {
     });
 
     await nuevoUsuario.save();
-    res.status(201).json({ mensaje: 'Usuario registrado correctamente' });
+    res.status(201).json({ mensaje: "Usuario registrado correctamente" });
   } catch (error) {
-    res.status(500).json({ error: 'Error al registrar usuario' });
+    res.status(500).json({ error: "Error al registrar usuario" });
   }
 });
 
 // Iniciar servidor
 app.listen(3000, () => {
-  console.log('Servidor corriendo en http://localhost:3000');
+  console.log("Servidor corriendo en http://localhost:3000");
 });
-
-
