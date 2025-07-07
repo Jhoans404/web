@@ -28,3 +28,10 @@ app.get('/usuarios', async (req, res) => {
 app.listen(3000, () => {
   console.log('Servidor corriendo en http://localhost:27017');
 });
+
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('Conexión a MongoDB Atlas exitosa'))
+  .catch(err => console.error(err));
