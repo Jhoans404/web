@@ -1,9 +1,11 @@
 body {
+  display: block;
   font-family: Arial, sans-serif;
   background-color: #121212;
   color: #fff;
-  margin: 0;
+  margin: 0 auto;
 }
+
 h2 {
   color: #00ffcc;
   text-align: center;
@@ -53,13 +55,8 @@ header a:hover {
   transform: scale(1.9);
 }
 
-#buscador {
-  padding: 6px;
-  border-radius: 5px;
-  border: none;
-  width: 200px;
-}
 
+/*
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -79,7 +76,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-
+*/
 .cartelera,
 .contenido-pelicula,
 .mapa {
@@ -136,6 +133,34 @@ button {
   padding: 20px;
   border-radius: 10px;
   flex: 1;
+}
+
+.video-section,
+.mapa {
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto 60px;
+  max-width: 800px;
+}
+
+#player {
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.mapa-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.mapa-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 table {
@@ -241,15 +266,320 @@ label {
   margin: 15px 0;
 }
 
-input[type="radio"], input[type="checkbox"] {
+input[type="radio"],
+input[type="checkbox"] {
   margin-right: 10px;
 }
 
-
 @media print {
-  body *       { visibility: hidden; }
+  body * {
+    visibility: hidden;
+  }
   #modalTicket,
-  #modalTicket * { visibility: visible; }
-  #modalTicket { position: absolute; top: 0; left: 0; width: 100%; }
-  #modalPrecio { display: none !important; }
+  #modalTicket * {
+    visibility: visible;
+  }
+  #modalTicket {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  #modalPrecio {
+    display: none !important;
+  }
+}
+
+.promociones {
+  padding: 40px 20px;
+  text-align: center;
+}
+.promociones h2 {
+  color: #00ffcc;
+  margin-bottom: 30px;
+}
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.promo-card {
+  background: #1e1e1e;
+  border: 1px solid #00ffcc;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: left;
+}
+.promo-card img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.promo-card h3 {
+  color: #00ffcc;
+  margin-bottom: 8px;
+}
+.promo-card p {
+  font-size: 0.9em;
+  margin-bottom: 8px;
+}
+.promo-card .precio {
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.promo-card .boton-comprar {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 0.95em;
+}
+.promo-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.promo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 255, 204, 0.2);
+}
+
+#promo-vip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  background: #222;
+  border: 2px solid #00ffcc;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+#promo-vip .vip-card {
+  /* limita un ancho máximo y centra su contenido */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  width: 100%;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 6px;
+  gap: 20px;
+}
+
+#promo-vip .vip-card img {
+  /* agranda la imagen y la centra */
+  width: 300px; /* prueba valores entre 300–400px */
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+#promo-vip .vip-info {
+  /* ocupa el resto del espacio y centra el botón */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#promo-vip .vip-info h3 {
+  color: #00ffcc;
+  margin-bottom: 8px;
+  font-size: 1.6rem;
+}
+
+#promo-vip .vip-info p {
+  margin-bottom: 12px;
+  line-height: 1.4;
+  color: #ddd;
+}
+
+#promo-vip .vip-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+#promo-vip .vip-card .boton-comprar {
+  align-self: start; /* o center si quieres centrarlo */
+  background-color: #00e6b8;
+  padding: 12px 24px;
+}
+
+/* ───────────  OVERLAY: ¡Oferta del Día!  ─────────── */
+
+/* fondo oscuro que cubre la pantalla */
+#promo-overlay {
+  display: none; /* oculto al cargar             */
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; …  */
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.93);
+  z-index: 2000;
+
+  /* centra la tarjeta; permite scroll si es muy alta */
+  padding: 40px 24px;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ───── Tarjeta principal ───── */
+#promo-overlay .OfertaCard {
+  position: relative; /* para posicionar la “X”       */
+  width: 100%;
+  max-width: 820px; /* móvil ↔ desktop adaptable     */
+  background: #1e1e1e;
+  border: 2px dashed #00ffcc;
+  border-radius: 10px;
+  padding: 32px 28px;
+
+  display: flex;
+  flex-direction: column; /* título, imagen, texto, btn   */
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+}
+
+/* título grande */
+#promo-overlay .vip-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #00ffcc;
+  letter-spacing: 0.4px;
+  margin: 0; /* sin margen extra             */
+}
+
+/* imagen responsiva con límite */
+#promo-overlay img {
+  width: 65%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* bloque de información */
+#promo-overlay .info {
+  max-width: 520px;
+  color: #ddd;
+}
+
+#promo-overlay .info h3 {
+  /* nombre del combo             */
+  color: #00ffcc;
+  margin: 12px 0 10px;
+}
+
+#promo-overlay .info p {
+  line-height: 1.45;
+  margin: 0 0 12px;
+}
+
+#promo-overlay .info .precio {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 18px 0;
+}
+
+/* botón */
+#promo-overlay button {
+  width: 100%;
+  max-width: 260px;
+  background: #00e6b8;
+  padding: 14px 0;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+#promo-overlay button:hover {
+  background: #00d4a6;
+}
+
+/* ───── Botón “X” de cierre ───── */
+#promo-overlay .close-overlay {
+  position: absolute;
+  top: 18px;
+  right: 32px;
+  font-size: 34px;
+  color: #fff;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.25s;
+}
+#promo-overlay .close-overlay:hover {
+  color: #00ffcc;
+}
+
+/* ───── Responsive: móvil ───── */
+@media (max-width: 560px) {
+  #promo-overlay {
+    padding: 28px 16px;
+  }
+  #promo-overlay img {
+    width: 100%;
+  }
+}
+
+.boton-comprar:active {
+  transform: scale(0.97);
+  filter: brightness(0.9);
+}
+
+#nav-cart {
+  position: relative;
+  margin-left: 20px; /* separa del enlace anterior */
+}
+
+#cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #e74c3c; /* círculo rojo */
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.cart-item {
+  display: flex; /* imagen + textos en la misma línea */
+  align-items: center; /* centra verticalmente */
+  gap: 18px; /* espacio entre img y texto */
+  background: #1e1e1e;
+  padding: 18px 24px;
+  border-radius: 8px;
+  margin: 18px auto;
+  max-width: 540px;
+}
+
+.cart-item img {
+  width: 70px; /* mismo tamaño para todas */
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.cart-item .info {
+  flex: 1; /* ocupa todo el resto */
+}
+
+.cart-item .titulo {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cart-item .precio {
+  color: #00ffcc;
+  font-size: 0.95rem;
 }

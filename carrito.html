@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="es">
+    <head>
+   <meta charset="UTF-8">
+  <title>Mi Carrito – Cinesario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+     <nav>
+      <a href="promociones.html" class="active"><i class="fas fa-tags"></i> Promociones</a>
+      <a href="index.html"><i class="fas fa-film"></i> Películas</a>
+      <a href="/cinesario/login/inicio.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+      <a href="/cinesario/login/inicio.html"><i class="fas fa-user-plus"></i> Registrarse</a>
+      <a href="#ubicacion"><i class="fas fa-map-marker-alt"></i> Ubicación</a>
+       <a href="carrito.html" id="nav-cart">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+  </a>
+    </nav>
+ </header>
+
+<main style="padding:40px; text-align:center;">
+  <h2>Mi Carrito</h2>
+  <div id="carrito-lista"></div>
+  <button id="btnPagar" class="boton-comprar" style="display:none;">Ir a Pagar</button>
+  <button id="btnVaciar" class="boton-comprar" style="background:#e74c3c; display:none;">Vaciar Carrito</button>
+</main>
+
+<script src="promociones.js"></script> <!-- utilidades y loadCart -->
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  const lista  = document.getElementById('carrito-lista');
+  const pagar  = document.getElementById('btnPagar');
+  const vaciar = document.getElementById('btnVaciar');
+
+  const cart = loadCart();
+  if (!cart.length){
+    lista.innerHTML = '<p>No tienes promociones añadidas.</p>';
+    return;
+  }
+
+  /* pinta promos */
+  cart.forEach(item => {
+  const card = document.createElement('div');
+  card.className = 'cart-item';   // <── usa la clase que acabamos de estilizar
+  card.innerHTML = `
+    <img src="${item.img}">
+    <div class="info">
+      <span class="titulo">${item.titulo}</span>
+      <span class="precio">${item.precio}</span>
+    </div>
+  `;
+  lista.appendChild(card);
+});
+
+  /* mostrar botones */
+  pagar.style.display  = 'inline-block';
+  vaciar.style.display = 'inline-block';
+
+  pagar.addEventListener('click', ()=>{
+    alert('Procesando... .. ¡Pago Exitoso!');
+  });
+  vaciar.addEventListener('click', ()=>{
+    if (confirm('Vaciar carrito?')){
+      localStorage.removeItem('cinesario_cart');
+      location.reload();
+    }
+  });
+});
+</script>
+
+ <script src="cart-utils.js"></script> 
+<script>
+  
+  document.addEventListener('DOMContentLoaded', updateCartBadge);
+</script>
+</body>
+</html>

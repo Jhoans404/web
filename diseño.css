@@ -1,0 +1,19 @@
+#buscador {
+  float: right;
+  margin-right: 20px;
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
+  width: 200px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  color: #000;
+}
+
+
+#buscador:focus {
+  outline: 2px solid #00ffcc;
+  background-color: #1a1a1a;
+  color: #00ffcc;
+}
+

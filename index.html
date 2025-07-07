@@ -1,209 +1,357 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Cinesario2</title>
-  <meta name="description" content="Cinesario - Tu cine favorito en Piura">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Equipo Web UTP">
-  <link rel="stylesheet" href="estilo.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
-  
-  <!-- ENCABEZADO -->
-  <header>
-    <div class="logo-container">
-      <img src="logo.png" alt="Cinesario logo">
-      <div class="logo">Cinesario</div>
-    </div>
-    <nav>
-      <a href="/cinesario/login/inicio.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
-      <a href="/cinesario/login/inicio.html"><i class="fas fa-user-plus"></i> Registrarse</a>
-      <a href="#ubicacion"><i class="fas fa-map-marker-alt"></i> Ubicación</a>
-    </nav>
-    <input type="text" placeholder="Buscar película..." id="buscador">
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cinesario2</title>
+    <meta name="description" content="Cinesario - Tu cine favorito en Piura" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Equipo Web UTP" />
+    <link rel="stylesheet" href="estilo.css" />
+    <link rel="stylesheet" href="diseño.css">
 
-  <!-- MENSAJE EN MOVIMIENTO -->
-  <marquee>¡Compra tus entradas ahora y disfruta de los mejores estrenos!</marquee>
-  
-  <!-- CARTELERA -->
-  <main class="cartelera">
-    <h2>Cartelera</h2>
-    <br>
-    <div class="peliculas">
-      <div class="pelicula" id="Inception">
-        <a href="peliculas/inception.html" onclick="mostrarPelicula('Inception')">
-          <img src="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg" alt="Inception">
-          <p>Inception</p>
-        </a>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <!-- ENCABEZADO -->
+    <header>
+      <div class="logo-container">
+        <img src="logo.png" alt="Cinesario logo" />
+        <div class="logo">Cinesario</div>
       </div>
-      <div class="pelicula" id="Interstellar">
-        <a href="peliculas/interstellar.html" onclick="mostrarPelicula('Interstellar')">
-          <img src="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg" alt="Interstellar">
-          <p>Interstellar</p>
+      <nav>
+        <a href="/cinesario/login/inicio.html"
+          ><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a
+        >
+        <a href="/cinesario/login/inicio.html"
+          ><i class="fas fa-user-plus"></i> Registrarse</a
+        >
+        <a href="#ubicacion"><i class="fas fa-map-marker-alt"></i> Ubicación</a>
+        <a href="promociones.html"><i class="fas fa-tags"></i> Promociones</a>
+        <a href="carrito.html" id="nav-cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count">0</span>
         </a>
-      </div>
-      <div class="pelicula" id="Spiderman:Homecoming">
-        <a href="peliculas/spiderman.html" onclick="mostrarPelicula('Spiderman:Homecoming')">
-          <img src="https://movienetworkpr.com/wp-content/uploads/2017/06/spiderman_homecoming_ver11_xlg.jpg" alt="Spiderman:Homecoming">
-          <p>Spiderman:Homecoming</p>
-        </a>
-      </div>
-      <div class="pelicula" id="El Padrino">
-        <a href="peliculas/padrino.html" onclick="mostrarPelicula('El padrino')">
-          <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2018/04/padrino.jpg?tf=256x" alt="El Padrino">
-          <p>El Padrino</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Olvidado">
-        <a href="peliculas/olvidado.html" onclick="mostrarPelicula('Olvidado')">
-          <img src="https://images.justwatch.com/poster/294758200/s166/gieogyi-bam.avif" alt="Olvidado">
-          <p>Olvidado</p>
-        </a>
-      </div>
-      <div class="pelicula" id="El Resplandor">
-        <a href="peliculas/resplandor.html" onclick="mostrarPelicula('El Resplandor')">
-          <img src="https://images.justwatch.com/poster/129659342/s166/el-resplandor.avif" alt="El resplandor">
-          <p>El Resplandor</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Taxi Driver">
-        <a href="peliculas/driver.html" onclick="mostrarPelicula('Taxi Driver')">
-          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Taxi_Driver_%281976_film_poster%29.jpg/250px-Taxi_Driver_%281976_film_poster%29.jpg" alt="Taxi Driver">
-          <p>Taxi Driver</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Shrek">
-        <a href="peliculas/shrek.html" onclick="mostrarPelicula('Shrek')">
-          <img src="https://m.media-amazon.com/images/I/51lsL-pawpL._SY445_.jpg" alt="Shrek">
-          <p>Shrek</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Avatar:El sentido del agua">
-        <a href="peliculas/avatar.html" onclick="mostrarPelicula('Avatar:El sentido del agua')">
-          <img src="https://pics.filmaffinity.com/Avatar_El_sentido_del_agua-641544200-large.jpg" alt="Avatar:El sentido del agua">
-          <p>Avatar:El sentido del agua</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Blanca Nieves">
-        <a href="peliculas/blancanieves.html" onclick="mostrarPelicula('Blanca Nieves')">
-          <img src="https://images.justwatch.com/poster/328582459/s166/snow-white-and-the-seven-dwarfs.avif" alt="Blanca Nieves">
-          <p>Blanca Nieves</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Up:Una aventira en altura">
-        <a href="peliculas/up.html" onclick="mostrarPelicula('Up:Una aventira en altura')">
-          <img src="https://www.funeralnatural.net/sites/default/files/pelicula/imagen/upcartel.jpg" alt="Up:Una aventira en altura">
-          <p>Up:Una aventira en altura</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Tren a Busan">
-        <a href="peliculas/trenabusan.html" onclick="mostrarPelicula('Tren a Busan')">
-          <img src="https://pics.filmaffinity.com/train_to_busan-266744354-mmed.jpg" alt="Tren a Busan">
-          <p>Tren a Busam</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Sector 9">
-        <a href="peliculas/sector9.html" onclick="mostrarPelicula('Sector 9')">
-          <img src="https://biblioteca.ulpgc.es/sites/default/files/attachments_files/lacalmalectora/Distrito_9_frente.jpg" alt="Sector 9">
-          <p>Sector 9</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Charlie y la fabrica de chocolate">
-        <a href="peliculas/charlie.html" onclick="mostrarPelicula('Charlie y la fabrica de chocolate')">
-          <img src="https://pics.filmaffinity.com/charlie_and_the_chocolate_factory-369210884-mmed.jpg" alt="Charlie y la fabrica de chocolate">
-          <p>Charlie y la fabrica de Chocolate</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Depredador">
-        <a href="peliculas/depredador.html" onclick="mostrarPelicula('Depredador')">
-          <img src="https://i.pinimg.com/736x/43/e4/7d/43e47dbe323f21a464c8dc48d352ef73.jpg" alt="Depredador">
-          <p>Depredador</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Titanic">
-        <a href="peliculas/titanic.html" onclick="mostrarPelicula('Titanic')">
-          <img src="https://i.pinimg.com/736x/4f/60/4a/4f604aff9ebdf824d4e99351fac43938.jpg" alt="Titanic">
-          <p>Titanic</p>
-        </a>
-      </div>
-      <div class="pelicula" id="El cadaver de la novia">
-        <a href="peliculas/elcadaver.html" onclick="mostrarPelicula('El cadaver de la novia')">
-          <img src="https://i.pinimg.com/736x/56/22/d1/5622d14bda686f72c2a03e01958baa64.jpg" alt="El cadaver de la Novia">
-          <p>El cadaver de la novia</p>
-        </a>
-      </div>
-      <div class="pelicula" id="Harry Potter">
-        <a href="peliculas/harrypotter.html" onclick="mostrarPelicula('Harry Potter')">
-          <img src="https://i.pinimg.com/736x/89/be/62/89be62d577431cdeaf8387ee106a674a.jpg" alt="Harry Potter">
-          <p>Harry Potter</p>
-        </a>
-      </div>
-    </div>
-  </main>
+      </nav>
 
-  <!-- PELÍCULA (DETALLES + RESEÑAS) -->
-  <main class="contenido-pelicula" id="pelicula" style="display:none;">
-    <h2 id="titulo-pelicula"></h2>
-    <p><strong>Género:</strong> <span id="pelicula-genero"></span></p>
-    <p><strong>Descripción:</strong> <span id="pelicula-descripcion"></span></p>
-
-    <div class="reviews">
-      <h3>Reseñas de usuarios</h3>
-      <div class="review">
-        <p><strong>Ana:</strong> Muy buena película 🔥</p>
-        <button class="like-btn">👍 15</button>
+      <div class="logo-container">
+        <img
+          src="https://i.pinimg.com/236x/a8/da/22/a8da222be70a71e7858bf752065d5cc3.jpg"
+          alt="Imagen de Jhoans"
+        />
+        <div class="usuario">Bienvenido</div>
       </div>
-      <div class="review-form">
-        <h4>Escribe tu reseña</h4>
-        <textarea placeholder="Escribe aquí tu opinión..."></textarea>
-        <button>Enviar reseña</button>
+    </header>
+
+    <!-- MENSAJE EN MOVIMIENTO  style="display:none;"-->
+    <marquee
+      >¡Compra tus entradas ahora y disfruta de los mejores estrenos!</marquee
+    >
+
+    <input type="text" placeholder="Buscar película..." id="buscador" />
+    <!-- CARTELERA -->
+    <main class="cartelera">
+      <h2>Cartelera</h2>
+      <br />
+      <div class="peliculas">
+        <div class="pelicula" id="Inception">
+          <a
+            href="peliculas/inception.html"
+            onclick="mostrarPelicula('Inception')"
+          >
+            <img
+              src="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg"
+              alt="Inception"
+            />
+            <p>Inception</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Interstellar">
+          <a
+            href="peliculas/interstellar.html"
+            onclick="mostrarPelicula('Interstellar')"
+          >
+            <img
+              src="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg"
+              alt="Interstellar"
+            />
+            <p>Interstellar</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Spiderman:Homecoming">
+          <a
+            href="peliculas/spiderman.html"
+            onclick="mostrarPelicula('Spiderman:Homecoming')"
+          >
+            <img
+              src="https://movienetworkpr.com/wp-content/uploads/2017/06/spiderman_homecoming_ver11_xlg.jpg"
+              alt="Spiderman:Homecoming"
+            />
+            <p>Spiderman:Homecoming</p>
+          </a>
+        </div>
+        <div class="pelicula" id="El Padrino">
+          <a
+            href="peliculas/padrino.html"
+            onclick="mostrarPelicula('El padrino')"
+          >
+            <img
+              src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2018/04/padrino.jpg?tf=256x"
+              alt="El Padrino"
+            />
+            <p>El Padrino</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Olvidado">
+          <a
+            href="peliculas/olvidado.html"
+            onclick="mostrarPelicula('Olvidado')"
+          >
+            <img
+              src="https://images.justwatch.com/poster/294758200/s166/gieogyi-bam.avif"
+              alt="Olvidado"
+            />
+            <p>Olvidado</p>
+          </a>
+        </div>
+        <div class="pelicula" id="El Resplandor">
+          <a
+            href="peliculas/resplandor.html"
+            onclick="mostrarPelicula('El Resplandor')"
+          >
+            <img
+              src="https://images.justwatch.com/poster/129659342/s166/el-resplandor.avif"
+              alt="El resplandor"
+            />
+            <p>El Resplandor</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Taxi Driver">
+          <a
+            href="peliculas/driver.html"
+            onclick="mostrarPelicula('Taxi Driver')"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Taxi_Driver_%281976_film_poster%29.jpg/250px-Taxi_Driver_%281976_film_poster%29.jpg"
+              alt="Taxi Driver"
+            />
+            <p>Taxi Driver</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Shrek">
+          <a href="peliculas/shrek.html" onclick="mostrarPelicula('Shrek')">
+            <img
+              src="https://m.media-amazon.com/images/I/51lsL-pawpL._SY445_.jpg"
+              alt="Shrek"
+            />
+            <p>Shrek</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Avatar:El sentido del agua">
+          <a
+            href="peliculas/avatar.html"
+            onclick="mostrarPelicula('Avatar:El sentido del agua')"
+          >
+            <img
+              src="https://pics.filmaffinity.com/Avatar_El_sentido_del_agua-641544200-large.jpg"
+              alt="Avatar:El sentido del agua"
+            />
+            <p>Avatar:El sentido del agua</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Blanca Nieves">
+          <a
+            href="peliculas/blancanieves.html"
+            onclick="mostrarPelicula('Blanca Nieves')"
+          >
+            <img
+              src="https://images.justwatch.com/poster/328582459/s166/snow-white-and-the-seven-dwarfs.avif"
+              alt="Blanca Nieves"
+            />
+            <p>Blanca Nieves</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Up:Una aventira en altura">
+          <a
+            href="peliculas/up.html"
+            onclick="mostrarPelicula('Up:Una aventira en altura')"
+          >
+            <img
+              src="https://www.funeralnatural.net/sites/default/files/pelicula/imagen/upcartel.jpg"
+              alt="Up:Una aventira en altura"
+            />
+            <p>Up:Una aventira en altura</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Tren a Busan">
+          <a
+            href="peliculas/trenabusan.html"
+            onclick="mostrarPelicula('Tren a Busan')"
+          >
+            <img
+              src="https://pics.filmaffinity.com/train_to_busan-266744354-mmed.jpg"
+              alt="Tren a Busan"
+            />
+            <p>Tren a Busam</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Sector 9">
+          <a
+            href="peliculas/sector9.html"
+            onclick="mostrarPelicula('Sector 9')"
+          >
+            <img
+              src="https://biblioteca.ulpgc.es/sites/default/files/attachments_files/lacalmalectora/Distrito_9_frente.jpg"
+              alt="Sector 9"
+            />
+            <p>Sector 9</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Charlie y la fabrica de chocolate">
+          <a
+            href="peliculas/charlie.html"
+            onclick="mostrarPelicula('Charlie y la fabrica de chocolate')"
+          >
+            <img
+              src="https://pics.filmaffinity.com/charlie_and_the_chocolate_factory-369210884-mmed.jpg"
+              alt="Charlie y la fabrica de chocolate"
+            />
+            <p>Charlie y la fabrica de Chocolate</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Depredador">
+          <a
+            href="peliculas/depredador.html"
+            onclick="mostrarPelicula('Depredador')"
+          >
+            <img
+              src="https://i.pinimg.com/736x/43/e4/7d/43e47dbe323f21a464c8dc48d352ef73.jpg"
+              alt="Depredador"
+            />
+            <p>Depredador</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Titanic">
+          <a href="peliculas/titanic.html" onclick="mostrarPelicula('Titanic')">
+            <img
+              src="https://i.pinimg.com/736x/4f/60/4a/4f604aff9ebdf824d4e99351fac43938.jpg"
+              alt="Titanic"
+            />
+            <p>Titanic</p>
+          </a>
+        </div>
+        <div class="pelicula" id="El cadaver de la novia">
+          <a
+            href="peliculas/elcadaver.html"
+            onclick="mostrarPelicula('El cadaver de la novia')"
+          >
+            <img
+              src="https://i.pinimg.com/736x/56/22/d1/5622d14bda686f72c2a03e01958baa64.jpg"
+              alt="El cadaver de la Novia"
+            />
+            <p>El cadaver de la novia</p>
+          </a>
+        </div>
+        <div class="pelicula" id="Harry Potter">
+          <a
+            href="peliculas/harrypotter.html"
+            onclick="mostrarPelicula('Harry Potter')"
+          >
+            <img
+              src="https://i.pinimg.com/736x/89/be/62/89be62d577431cdeaf8387ee106a674a.jpg"
+              alt="Harry Potter"
+            />
+            <p>Harry Potter</p>
+          </a>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <!-- VIDEO DE YOUTUBE -->
-  <div class="video-container">
-    <iframe width="640" height="360"
-            src="https://www.youtube.com/embed/Oi4Eqgp1iu4"
-            frameborder="0"
-            allow="autoplay; encrypted-media"
-            allowfullscreen>
-    </iframe>
-  </div>
+    <!-- VIDEO DE YOUTUBE -->
+    <section class="video-section">
+      <h2>Trailer destacado</h2>
+      <div id="player" onclick="reproducirVideo()"></div>
+    </section>
 
-  <!-- MAPA DE UBICACIÓN -->
-  <main class="mapa" id="ubicacion">
-    <h2>Encuentra nuestro cine</h2>
-    <p>Estamos ubicados en Piura, Perú.</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.4184526551485!2d-80.630726626254!3d-5.196729552401269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904a107e65ddddeb%3A0xf1edaf6744b58bb4!2sCineplanet%20Piura%20Centro!5e0!3m2!1ses!2spe!4v1745121052150!5m2!1ses!2spe"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </main>
+    <!-- MAPA DE UBICACIÓN -->
+    <main class="mapa" id="ubicacion">
+      <h2>Encuentra nuestro cine</h2>
+      <p>Estamos ubicados en Piura, Perú.</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.4184526551485!2d-80.630726626254!3d-5.196729552401269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904a107e65ddddeb%3A0xf1edaf6744b58bb4!2sCineplanet%20Piura%20Centro!5e0!3m2!1ses!2spe!4v1745121052150!5m2!1ses!2spe"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      >
+      </iframe>
+    </main>
 
-  <!-- Script de búsqueda -->
-  <script>
-    const buscador = document.getElementById("buscador");
-    const peliculas = document.querySelectorAll(".pelicula");
-    buscador.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        const texto = buscador.value.toLowerCase().trim();
-        peliculas.forEach(pelicula => {
-          const titulo = pelicula.querySelector("p")?.textContent.toLowerCase();
-          pelicula.style.display = (titulo && titulo.includes(texto)) ? "block" : "none";
+    <!-- Script de búsqueda -->
+    <script>
+      var tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          height: "360",
+          width: "640",
+          videoId: "Oi4Eqgp1iu4",
+          playerVars: {
+            autoplay: 0, // No auto reproduzcas
+            controls: 1,
+          },
+          events: {
+            onReady: onPlayerReady,
+          },
         });
       }
-    });
-  </script>
 
-  <footer>
-    <hr>
-    <p align="center">&copy; 2025 Cinesario. Todos los derechos reservados.</p>
-    <p align="center">Desarrollado por el equipo web de UTP</p>
-  </footer>
-</body>
+      function onPlayerReady(event) {
+        event.target.pauseVideo(); // Asegúrate que esté pausado al cargar
+      }
+
+      function reproducirVideo() {
+        if (player && typeof player.playVideo === "function") {
+          player.playVideo();
+        }
+      }
+
+      const buscador = document.getElementById("buscador");
+      const peliculas = document.querySelectorAll(".pelicula");
+      buscador.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          const texto = buscador.value.toLowerCase().trim();
+          peliculas.forEach((pelicula) => {
+            const titulo = pelicula
+              .querySelector("p")
+              ?.textContent.toLowerCase();
+            pelicula.style.display =
+              titulo && titulo.includes(texto) ? "block" : "none";
+          });
+        }
+      });
+    </script>
+
+    <footer>
+      <hr />
+      <p align="center">
+        &copy; 2025 Cinesario. Todos los derechos reservados.
+      </p>
+      <p align="center">Desarrollado por el equipo web de UTP</p>
+    </footer>
+
+    <script src="cart-utils.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", updateCartBadge);
+    </script>
+  </body>
 </html>

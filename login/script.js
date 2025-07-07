@@ -1,41 +1,47 @@
-const btnLogin = document.getElementById("btn-login");
-const btnRegister = document.getElementById("btn-register");
-const formWrapper = document.getElementById("form-wrapper");
-const slider = document.getElementById("slider");
-const registerForm = document.getElementById("registerForm");
-const loginForm = document.getElementById("loginForm");
+ document.addEventListener('DOMContentLoaded', function() {
+            const signUpButton = document.getElementById('signUp');
+            const signInButton = document.getElementById('signIn');
+            const signUpOverlay = document.getElementById('signUpOverlay');
+            const signInOverlay = document.getElementById('signInOverlay');
+            const container = document.getElementById('container');
 
-// Cambiar a login
-btnLogin.addEventListener("click", () => {
-  formWrapper.style.transform = "translateX(0%)";
-  slider.style.transform = "translateX(0%)";
-});
+            setTimeout(() => {
+                container.classList.add('container-active');
+            }, 300);
 
-// Cambiar a registro
-btnRegister.addEventListener("click", () => {
-  formWrapper.style.transform = "translateX(-50%)";
-  slider.style.transform = "translateX(100%)";
-});
+            if (signUpButton) {
+                signUpButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    container.classList.add("right-panel-active");
+                });
+            }
+            if (signInButton) {
+                signInButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    container.classList.remove("right-panel-active");
+                });
+            }
+            if (signUpOverlay) {
+                signUpOverlay.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    container.classList.add("right-panel-active");
+                });
+            }
+            if (signInOverlay) {
+                signInOverlay.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    container.classList.remove("right-panel-active");
+                });
+            }
 
-// Registro simulado y redirección
-registerForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  alert("¡Registro exitoso!");
-  window.location.href = "../index.html"; // Redirección a la página principal
-});
-
-// Inicio de sesión simulado
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const email = loginForm.querySelector('input[type="email"]').value;
-  const password = loginForm.querySelector('input[type="password"]').value;
-
-  // Simulación de verificación simple
-  if (email === "demo@cine.com" && password === "1234") {
-    alert("Inicio de sesión exitoso");
-    window.location.href = "../index.html"; // Redirección si es correcto
-  } else {
-    alert("Correo o contraseña incorrectos");
-  }
-});
+            // Efecto de foco en inputs
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.parentElement.style.transform = 'translateY(-3px)';
+                });
+                input.addEventListener('blur', () => {
+                    input.parentElement.style.transform = 'translateY(0)';
+                });
+            });
+        });

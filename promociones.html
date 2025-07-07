@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Promociones – Cinesario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>  
+    <div class="logo-container">
+      <img src="logo.png" alt="Cinesario logo">
+      <div class="logo">Cinesario</div>
+    </div>
+    <nav>
+      <a href="promociones.html" class="active"><i class="fas fa-tags"></i> Promociones</a>
+      <a href="index.html"><i class="fas fa-film"></i> Películas</a>
+      <a href="/cinesario/login/inicio.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+      <a href="/cinesario/login/inicio.html"><i class="fas fa-user-plus"></i> Registrarse</a>
+      <a href="#ubicacion"><i class="fas fa-map-marker-alt"></i> Ubicación</a>
+       <a href="carrito.html" id="nav-cart">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+  </a>
+    </nav>
+  </header>
+
+<main class="promociones">
+  <h2>Promociones Actuales</h2>
+  <div class="promo-grid">
+    <!-- Promo 1 -->
+    <div class="promo-card">
+      <img src="https://scontent.fpiu1-1.fna.fbcdn.net/v/t39.30808-6/474001786_626825133036004_3977069827831735313_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=PaFlcflNfL8Q7kNvwFAgj8d&_nc_oc=AdlW_TkQMShnuPyiFAL9PgfXVq5hWjLlPVi0YgkSkC4VKd8EgBIIOEvtmKbcIIw3_vUztmV11PZxbytOTcRUpbML&_nc_zt=23&_nc_ht=scontent.fpiu1-1.fna&_nc_gid=fbPplU1XO-2wfy2JbGJWHQ&oh=00_AfQhsehEq5kLIssE5xfWthNvensNltyM2MRxokLQ3K6CCw&oe=68710434" alt="2x1 Martes 2D">
+      <h3>2×1 Miercoles de 2D</h3>
+      <p>Trae a tu amigo y paguen solo una entrada 2D todos los miercoles.</p>
+      <p class="precio">S/ 19.90  → 2 entradas</p>
+      <button class="boton-comprar">Agregar</button>
+    </div>
+    <!-- Promo 2 -->
+    <div class="promo-card">
+      <img src="https://media.istockphoto.com/id/497858888/es/foto/palomitas-de-ma%C3%ADz-en-caja-con-cola.jpg?s=612x612&w=0&k=20&c=YNSKuW4E1kSop0dxjVt8idwptL6n3ie8RTPA6qUCaCI=" alt="Combo Palomitas">
+      <h3>Combo Palomitas XXL</h3>
+      <p>Palomitas tamaño XXL + gaseosa grande.</p>
+      <p class="precio">S/ 25.00</p>
+      <button class="boton-comprar">Agregar</button>
+    </div>
+    <!-- Promo 3 -->
+    <div class="promo-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Up8oMp345sLVTELmQJMwzfi2fCFKnJ0zlQ&s" alt="Código CINEMANIA">
+      <h3>–20% Código CINEMANIA</h3>
+      <p>Usa el código <strong>CINEMANIA</strong> y obtén 20% de descuento en cualquier función.</p>
+      <p class="precio">Válido hasta 31/07/2025</p>
+      <button class="boton-comprar">Copiar Código</button>
+    </div>
+    <!-- Promo 4 -->
+    <div class="promo-card">
+      <img src="https://i.etsystatic.com/6929341/r/il/7fa111/1597174053/il_570xN.1597174053_fzwd.jpg" alt="Combo Snack+Refri">
+      <h3>Snack + Gaseosa a S/15</h3>
+      <p>Elige tu snack (papas, nachos o churros) + gaseosa pequeña.</p>
+      <p class="precio">S/ 15.00</p>
+      <button class="boton-comprar">Agregar</button>
+    </div>
+    <!-- Promo 5 -->
+    <div class="promo-card">
+      <img src="https://scontent.fpiu1-1.fna.fbcdn.net/v/t1.6435-9/53155136_10156353659399315_2836696624787357696_n.png?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=j8mUpo8UJG8Q7kNvwEnzqJA&_nc_oc=AdlNHFA-r3qJ1ou2Kz_gIga5dxFNucp6qs7NVtRvoiROFPx7u68MOsfhqSZS09QOuMjyEIuoC_9vIzNz5CStswbX&_nc_zt=23&_nc_ht=scontent.fpiu1-1.fna&_nc_gid=bquJJs0bZaSG2u64Ro_opw&oh=00_AfSuhPTXQ2Eu74MXBNrwWPwaUWC5PXbvMIuM-IOTyPDTuA&oe=6892A9E7" alt="Familia 4x3">
+      <h3>Pack Familia 4x3</h3>
+      <p>Compra 4 entradas y recibe 1 gratis (válido solo fines de semana).</p>
+      <p class="precio">Promoción válida sáb-dom</p>
+      <button class="boton-comprar">Agregar</button>
+    </div>
+    <!-- Promo 6 -->
+    <div class="promo-card">
+      <img src="https://media.istockphoto.com/id/518924373/es/vector/pel%C3%ADcula.jpg?s=612x612&w=0&k=20&c=7BVf7vNJkuauKSB3ZpBclBMFG73Cm5c4ep3lwM78nnk=" alt="Happy Hour">
+      <h3>Happy Hour</h3>
+      <p>50% de descuento en refrescos y palomitas de 2 p.m. a 5 p.m. (Lun–Vie).</p>
+      <p class="precio">De 14:00 a 17:00</p>
+      <button class="boton-comprar">Agregar</button>
+    </div>
+  </div>
+</main>
+
+
+<div id="promo-overlay">
+  <div class="OfertaCard">
+    <span class="close-overlay">&times;</span>
+    <h2 class="vip-title">¡Oferta del Día 🎟️!</h2>
+    
+    <img src="https://scontent.fpiu1-1.fna.fbcdn.net/v/t39.30808-6/480299034_921673516715182_3168662668361809558_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JpyN7hpOSYYQ7kNvwEkV5_b&_nc_oc=Adn7u3AZa8yBfcp5DK09cqnIGCgv4kXu48uHUtkCLdpbd64YQLSoVmi2xv0zzgqf9TL8CLtUhoLG_HcQBg91wkPf&_nc_zt=23&_nc_ht=scontent.fpiu1-1.fna&_nc_gid=fImnHn5LqgzyNFtaIcFYmg&oh=00_AfRXHxiuvyzmEQF0YTTYPYzufmXl-l5fMXGm_ww3TMjWNQ&oe=68711012"
+         alt="Oferta VIP">
+
+    <div class="info">
+      <h3>Combo VIP Golden</h3>
+      <p>Incluye palomitas XL, 2 refrescos y 2 entradas 2D.</p>
+      <p class="precio">S/ 45.00</p>
+
+      <button class="boton-comprar">¡Aprovechar Ahora!</button>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<section id="promo-vip">
+  <h2>Oferta del Día 🎟️</h2>
+  <div class="vip-card">
+    <img src="https://scontent.fpiu1-1.fna.fbcdn.net/v/t39.30808-6/480299034_921673516715182_3168662668361809558_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JpyN7hpOSYYQ7kNvwEkV5_b&_nc_oc=Adn7u3AZa8yBfcp5DK09cqnIGCgv4kXu48uHUtkCLdpbd64YQLSoVmi2xv0zzgqf9TL8CLtUhoLG_HcQBg91wkPf&_nc_zt=23&_nc_ht=scontent.fpiu1-1.fna&_nc_gid=fImnHn5LqgzyNFtaIcFYmg&oh=00_AfRXHxiuvyzmEQF0YTTYPYzufmXl-l5fMXGm_ww3TMjWNQ&oe=68711012" alt="Oferta VIP">
+    <div class="vip-info">
+      <h3>Combo VIP Golden</h3>
+      <p>Incluye palomitas XL, 2 refrescos y 2 entradas 2D.</p>
+      <p class="vip-price">S/ 45.00</p>
+      <button id="btnVip" class="boton-comprar">¡Aprovechar Ahora!</button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <!-- Puedes reutilizar el footer de tu index -->
+  <footer>
+    <hr>
+    <p align="center">&copy; 2025 Cinesario. Todos los derechos reservados.</p>
+    <p align="center">Desarrollado por el equipo web de UTP</p>
+  </footer>
+  <script src="promociones.js"></script>
+</body>
+</html>
